@@ -13,15 +13,19 @@ export function useDataUpdate() {
 
 export function DataProvider({ children }) {
     const [selectedRoute, setSelectedRoute] = useState("")
+    const [userEmail, setUserEmail] = useState("")
+
     return (
         <DataContext.Provider value={
             {
-                selectedRoute
+                selectedRoute,
+                userEmail
             }
         }>
             <DataUpdaterContext.Provider value={
                 {
-                    setSelectedRoute
+                    setSelectedRoute,
+                    setUserEmail
                 }
             }>
                 { children }

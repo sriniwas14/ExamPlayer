@@ -1,4 +1,5 @@
 import React from 'react'
+import Login from './Components/Login'
 import { useData } from './DataContext'
 
 export default function Routes() {
@@ -6,7 +7,7 @@ export default function Routes() {
 
     switch(dataContext.selectedRoute){
         case "":
-            return (<div>Login</div>)
+            return (<Login />)
         case "questions":
             return (<div>Questions</div>)
         case "result":
