@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { DataProvider } from './DataContext';
 import Routes from './Routes';
 
