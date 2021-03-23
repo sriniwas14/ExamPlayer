@@ -8,6 +8,8 @@ $defaultBorderRadius: 10px;
 /**
 1. Elements
 2. Login Component
+3. Questions
+4. Question
 **/
 
 // Elements
@@ -64,6 +66,49 @@ button:focus {
             font-size: 25px;
             background-color: $primary-color;
             color: $primary-text;
+        }
+    }
+}
+
+// Questions
+.questionsContainer {
+    .questionsHeader {
+        display: flex;
+        padding: 13px;
+        background: #007acc;
+        div {
+            font-family: Roboto;
+            font-size: 22px;
+            color: wheat;
+            font-weight: 300;
+        }
+        button {
+            margin-left: auto;
+            background-color: white !important;
+        }
+    }
+    .questionsFooter {
+        padding: 14px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-top: 1px solid #e5e5e5;
+    }
+}
+
+// Question
+.questionContainer {
+    display: flex;
+    margin: 15vh 0;
+    .questionIdContainer {
+        padding-right: 15px;
+    }
+    .questionOption {
+        padding: 10px;
+        cursor: default;
+        input {
+            margin-right: 10px;
         }
     }
 }

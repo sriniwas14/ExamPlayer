@@ -1,5 +1,6 @@
 import React from 'react'
 import Login from './Components/Login'
+import Questions from './Components/Questions'
 import { useData } from './DataContext'
 
 export default function Routes() {
@@ -9,7 +10,7 @@ export default function Routes() {
         case "":
             return (<Login />)
         case "questions":
-            return (<div>Questions</div>)
+            return (<Questions />)
         case "result":
             return (<div>Answers</div>)
         default:
