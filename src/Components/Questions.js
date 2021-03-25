@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, ButtonGroup, Row, Col } from 'react-bootstrap'
 import { useData, useDataUpdate } from '../DataContext'
-import Question from './Elements/Question'
+import Question from './Elements/Question'  
 
 export default function Questions() {
     const dataContext = useData()
@@ -10,7 +10,26 @@ export default function Questions() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
 
     const handleFinish = () => {
-        updateDataContext.setSelectedRoute("result")
+        setTimeout(() => updateDataContext.setSelectedRoute("result"), 1000)
+        
+    }
+
+    const nextQuestion = (delay) => {
+        if(currentQuestionIndex>=dataContext.questions.length-1){
+            if (delay) handleFinish()
+            return
+        }
+
+        const timeoutDuration = delay===true ? 800 : 0
+
+        setTimeout(()=> {
+            setCurrentQuestionIndex(val => val+1) 
+        }, timeoutDuration)
+    }
+
+    const previousQuestion = async () => {
+        if(currentQuestionIndex<=0) return
+        setCurrentQuestionIndex(val => val-1)
     }
 
     return (
@@ -21,15 +40,15 @@ export default function Questions() {
             </div>
 
             <div className="questionsArea">
-                <Question question={dataContext.questions[currentQuestionIndex]} />
+                <Question nextQuestion={() => nextQuestion(true)} question={dataContext.questions[currentQuestionIndex]} />
             </div>
 
             <div className="questionsFooter">
                 <Row>
                     <Col sm={4}>
                         <ButtonGroup>
-                            <Button onClick={() => setCurrentQuestionIndex(val => val-1)} disabled={ currentQuestionIndex===0 ? true : false } variant="primary">Previous</Button>
-                            <Button onClick={() => setCurrentQuestionIndex(val => val+1)} disabled={ currentQuestionIndex===numberOfQuestions-1 ? true : false } variant="primary">Next</Button>
+                            <Button onClick={() => previousQuestion()} disabled={ currentQuestionIndex===0 ? true : false } variant="primary">Previous</Button>
+                            <Button onClick={() => nextQuestion(false)} disabled={ currentQuestionIndex===numberOfQuestions-1 ? true : false } variant="primary">Next</Button>
                         </ButtonGroup>
                     </Col>
                     <Col style={{ textAlign: "center", fontSize: 17, padding: 6, color: "#353535" }} sm={4}>

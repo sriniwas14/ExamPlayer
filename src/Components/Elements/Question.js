@@ -8,6 +8,7 @@ export default function Question(props) {
 
     const handleRadioClick = (e) => {
         updateDataContext.setAnswerKey({ [props.question.id]: parseInt(e.target.value) })
+        props.nextQuestion()
     }
     return (
         <div>
