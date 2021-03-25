@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
 import { Button, ButtonGroup, Row, Col } from 'react-bootstrap'
-import { useData } from '../DataContext'
+import { useData, useDataUpdate } from '../DataContext'
 import Question from './Elements/Question'
 
 export default function Questions() {
-    const dataContext = useData();
+    const dataContext = useData()
+    const updateDataContext = useDataUpdate()
     const numberOfQuestions = dataContext.questions.length;
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
+
+    const handleFinish = () => {
+        updateDataContext.setSelectedRoute("result")
+    }
 
     return (
         <div className="questionsContainer">
@@ -31,7 +36,7 @@ export default function Questions() {
                         Question {currentQuestionIndex+1} of {numberOfQuestions}
                     </Col>
                     <Col style={{ textAlign: "right" }} sm={4}>
-                        <Button style={{ marginLeft: "auto" }} variant="success">Finish</Button>
+                        <Button style={{ marginLeft: "auto" }} onClick={handleFinish} variant="success">Finish</Button>
                     </Col>
                 </Row>
             </div>

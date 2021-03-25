@@ -1,6 +1,9 @@
 // COLORS
 $primary-color : #007acc;
 $primary-text : #ffffff;
+$secondary-color : #CC5200; 
+$success-color: #83c73e;
+$error-color: #c73e3e;
 
 // VALUES
 $defaultBorderRadius: 10px;
@@ -109,6 +112,67 @@ button:focus {
         cursor: default;
         input {
             margin-right: 10px;
+        }
+    }
+}
+
+// results
+.resultHeader {
+    background-color: $primary-color;
+    color: $primary-text;
+    text-align: center;
+    padding: 50px 0;
+
+    h1 {
+        font-family: "Roboto";
+        font-weight: 300;
+        margin: "60px 0";
+    }
+}
+
+.resultReviewQuestion {
+    margin-bottom: 30px;
+    h4 {
+        font-family: Roboto;
+        font-weight: 400;
+    }
+    h5 {
+        font-weight: 300;
+        font-family: Roboto;
+    }
+    .correctAnswer {
+        color: green;
+    }
+    .wrongAnswer {
+        color: red;
+    }
+}
+
+.resultHeaderItem {
+    background-color: #e5e5e5;
+    padding: 20px;
+    border-radius: $defaultBorderRadius;
+    color: $primary-color;
+    h2, h1 {
+        font-weight: 300;
+    }
+}
+
+.resultCircularProgressBar {
+    &.successColor {
+        path {
+            stroke: $success-color !important;
+        }
+        text {
+            fill: $success-color !important;
+        }
+    }
+    &.errorColor {
+        path {
+            stroke: $error-color !important;
+        }
+        text {
+            fill: $error-color !important;
         }
     }
 }

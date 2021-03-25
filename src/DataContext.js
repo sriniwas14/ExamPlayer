@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
 
 const questions = [
-    { id: "A", question: "What is my name?", options: ["Alan", "Sriniwas", "Raju", "Krishna"] },
-    { id: "B", question: "What do you do for a living?", options: ["Pilot", "Postman", "Begger", "Mercenary"] },
-    { id: "C", question: "Where do you live?", options: ["China", "Nepal", "India", "Pakistan"] }
+    { id: "A", question: "What is my name?", correctAnswer: 1, options: ["Alan", "Sriniwas", "Raju", "Krishna"] },
+    { id: "B", question: "What do you do for a living?", correctAnswer: 3, options: ["Pilot", "Postman", "Begger", "Mercenary"] },
+    { id: "C", question: "Where do you live?", correctAnswer: 2, options: ["China", "Nepal", "India", "Pakistan"] }
 ]
 
 const DataContext = React.createContext()
@@ -18,9 +18,9 @@ export function useDataUpdate() {
 }
 
 export function DataProvider({ children }) {
-    const [selectedRoute, setSelectedRoute] = useState("questions")
+    const [selectedRoute, setSelectedRoute] = useState("")
     const [userEmail, setUserEmail] = useState("")
-    const [answers, setAnswers] = useState({ })
+    const [answers, setAnswers] = useState("")
 
     const setAnswerKey = (newAnswer) => {
         setAnswers((prevAnswers) => ({
@@ -35,7 +35,8 @@ export function DataProvider({ children }) {
                 selectedRoute,
                 userEmail,
                 questions,
-                answers
+                answers,
+                passingMarks: 60
             }
         }>
             <DataUpdaterContext.Provider value={
