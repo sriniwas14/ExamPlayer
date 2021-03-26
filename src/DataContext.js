@@ -20,7 +20,7 @@ export function useDataUpdate() {
 export function DataProvider({ children }) {
     const [selectedRoute, setSelectedRoute] = useState("")
     const [userEmail, setUserEmail] = useState("")
-    const [answers, setAnswers] = useState("")
+    const [answers, setAnswers] = useState({})
 
     const setAnswerKey = (newAnswer) => {
         setAnswers((prevAnswers) => ({

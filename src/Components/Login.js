@@ -4,8 +4,6 @@ import { useDataUpdate } from '../DataContext'
 export default function Login() {
     const updateDataContext = useDataUpdate()
 
-    const emailInputRef = useRef()
-
     const isEmailValid = (emailAddress) => {
         if (emailAddress<1) return false
         const re = /\S+@\S+\.\S+/
@@ -17,8 +15,9 @@ export default function Login() {
         return true
     }
 
-    const submitEmail = () => {
-        const email = emailInputRef.current.value
+    const submitEmail = (e) => {
+        e.preventDefault()
+        const email = e.target[0].value
         if(isEmailValid(email)){
             updateDataContext.setSelectedRoute("questions")
             updateDataContext.setUserEmail(email)
@@ -39,8 +38,10 @@ export default function Login() {
                     Please Enter your E-mail to Continue
 
                     <br /><br />
-                    <input ref={emailInputRef} className="customInputField" placeholder="username@example.com" type="email" />
-                    <button style={{ marginTop: 10 }} onClick={submitEmail} className="customButton">Start Quiz!</button>
+                    <form onSubmit={submitEmail}>
+                        <input className="customInputField" placeholder="username@example.com" type="email" />
+                        <button style={{ marginTop: 10 }} className="customButton">Start Quiz!</button>
+                    </form>
                 </div>
             </div>
         </div>

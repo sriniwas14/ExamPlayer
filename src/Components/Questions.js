@@ -14,6 +14,12 @@ export default function Questions() {
         
     }
 
+    const handleLogOut = () => {
+        updateDataContext.setSelectedRoute("")
+        updateDataContext.setAnswers({})
+        updateDataContext.setUserEmail("")
+    }
+
     const nextQuestion = (delay) => {
         if(currentQuestionIndex>=dataContext.questions.length-1){
             if (delay) handleFinish()
@@ -36,7 +42,7 @@ export default function Questions() {
         <div className="questionsContainer">
             <div className="questionsHeader">
                 <div>Exam Player</div>
-                <Button variant="light">Log Out</Button>
+                <Button onClick={handleLogOut} variant="light">Log Out</Button>
             </div>
 
             <div className="questionsArea">
