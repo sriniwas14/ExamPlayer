@@ -13,6 +13,9 @@ export default function Question(props) {
 
         setTimeout(()=> { 
             props.nextQuestion()
+
+            const lastQuestion = dataContext.questions[dataContext.questions.length - 1]
+            if(lastQuestion.id===props.question.id) return
             questionContainer.classList.remove("fadeOut")
         }, 400)
 
@@ -28,7 +31,7 @@ export default function Question(props) {
                         <h5>{props.question.question}</h5>
                         <br/><br/>
                         {
-                            props.question.options.map((option, index) => <div className="questionOption" key={option}><input type="radio" id={index} checked={dataContext.answers[props.question.id]===index} onChange={handleRadioClick} name="answer" value={index} /><label for={index} >{option}</label></div>)
+                            props.question.options.map((option, index) => <div className="questionOption" key={option}><input type="radio" id={index} checked={dataContext.answers[props.question.id]===index} onChange={handleRadioClick} name="answer" value={index} /><label htmlFor={index} >{option}</label></div>)
                         }
                     </div>
                 </div>

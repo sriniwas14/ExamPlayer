@@ -116,7 +116,8 @@ export function DataProvider({ children }) {
                 {
                     setSelectedRoute,
                     setUserEmail,
-                    setAnswerKey
+                    setAnswerKey,
+                    setAnswers
                 }
             }>
                 { children }

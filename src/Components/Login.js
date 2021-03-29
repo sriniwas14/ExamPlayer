@@ -1,8 +1,11 @@
 import React from 'react'
+import { useSpring, animated } from 'react-spring'
 import { useDataUpdate } from '../DataContext'
 
 export default function Login() {
     const updateDataContext = useDataUpdate()
+
+    const animPropsAboutMe = useSpring({ to:{opacity: 1, transform: 'rotateX(0deg)'}, from: { opacity: 0, transform: 'rotateX(90deg)' }});
 
     const isEmailValid = (emailAddress) => {
         if (emailAddress<1) return false
@@ -26,7 +29,7 @@ export default function Login() {
 
     return (
         <div className="loginContainer">
-            <div className="loginDialog">
+            <animated.div style={ animPropsAboutMe} className="loginDialog">
                 <div className="loginHeader">
                     Exam Player
                 </div>
@@ -39,11 +42,11 @@ export default function Login() {
 
                     <br /><br />
                     <form onSubmit={submitEmail}>
-                        <input className="customInputField" placeholder="username@example.com" type="email" />
+                        <input className="customInputField" placeholder="username@example.com" type="email" required/>
                         <button style={{ marginTop: 10 }} className="customButton">Start Quiz!</button>
                     </form>
                 </div>
-            </div>
+            </animated.div>
         </div>
     )
 }
