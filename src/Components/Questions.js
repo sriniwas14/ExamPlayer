@@ -26,11 +26,7 @@ export default function Questions() {
             return
         }
 
-        const timeoutDuration = delay===true ? 800 : 0
-
-        setTimeout(()=> {
-            setCurrentQuestionIndex(val => val+1) 
-        }, timeoutDuration)
+        setCurrentQuestionIndex(val => val+1)
     }
 
     const previousQuestion = async () => {

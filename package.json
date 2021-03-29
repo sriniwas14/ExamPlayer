@@ -1,6 +1,7 @@
 {
   "name": "examplayer",
   "version": "0.1.0",
+  "homepage": "http://apps.sriniwasjha.in/examplayer",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",

@@ -1,9 +1,82 @@
 import React, { useContext, useState } from 'react'
 
 const questions = [
-    { id: "A", question: "What is my name?", correctAnswer: 1, options: ["Alan", "Sriniwas", "Raju", "Krishna"] },
-    { id: "B", question: "What do you do for a living?", correctAnswer: 3, options: ["Pilot", "Postman", "Begger", "Mercenary"] },
-    { id: "C", question: "Where do you live?", correctAnswer: 2, options: ["China", "Nepal", "India", "Pakistan"] }
+{
+    id: "Q1",
+    question: "Is JavaScript a case-sensitive language?",
+    correctAnswer: 0,
+    options: ["true", "false"]
+},
+{
+    id: "Q2",
+    question: "Which of the following is true about cookie handling in JavaScript?",
+    correctAnswer: 2,
+    options: ["JavaScript can manipulate cookies using the cookie property of the Document object.",
+        "JavaScript can read, create, modify, and delete the cookie or cookies that apply to the current web page.",
+        "Both of the above.",
+        "None of the above."
+    ]
+},
+{
+    id: "Q3",
+    question: "Which of the following type of variable takes precedence over other if names are same?",
+    correctAnswer: 1,
+    options: ["global variable",
+        "local variable",
+        "Both of the above.",
+        "None of the above."
+    ]
+},
+{
+    id: "Q4",
+    question: "Which built-in method sorts the elements of an array?",
+    correctAnswer: 2,
+    options: ["changeOrder(order)",
+        "order()",
+        "sort()",
+        "None of the above."
+    ]
+},
+{
+    id: "Q5",
+    question: "Which of the following function of Boolean object returns a string containing the source of the Boolean object?",
+    correctAnswer: 0,
+    options: ["toSource()",
+        "valueOf()",
+        "toString()",
+        "None of the above."
+    ]
+},
+{
+    id: "Q6",
+    question: "Which of the following function of String object splits a String object into an array of strings by separating the string into substrings?",
+    correctAnswer: 1,
+    options: ["A - slice()",
+        "B - split()",
+        "C - replace()",
+        "D - search()",
+    ]
+},
+{
+    id: "Q7",
+    question: "Which of the following function of String object returns the calling string value converted to lower case?",
+    correctAnswer: 1,
+    options: ["toLocaleLowerCase()",
+        "toLowerCase()",
+        "toString()",
+        "substring()"
+    ]
+},
+{
+    id: "Q8",
+    question: "Which of the following function of String object causes a string to be displayed in the specified size as if it were in a <font size = 'size'> tag?",
+    correctAnswer: 2,
+    options: ["fixed()",
+        "fontcolor()",
+        "fontsize()",
+        "bold()"
+    ]
+}
 ]
 
 const DataContext = React.createContext()

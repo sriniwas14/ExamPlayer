@@ -104,6 +104,13 @@ button:focus {
 .questionContainer {
     display: flex;
     margin: 15vh 0;
+    transition: 0.2s ease-in;
+    transform: scale(1.0);
+    &.fadeOut {
+        transform: scale(0.9);
+        opacity: 0;
+        transition: 0.2s ease-out;
+    }
     .questionIdContainer {
         padding-right: 15px;
     }
@@ -112,6 +119,9 @@ button:focus {
         cursor: default;
         input {
             margin-right: 10px;
+        }
+        label {
+            margin: 0;
         }
     }
 }
