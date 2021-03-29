@@ -51,10 +51,10 @@ const questions = [
     id: "Q6",
     question: "Which of the following function of String object splits a String object into an array of strings by separating the string into substrings?",
     correctAnswer: 1,
-    options: ["A - slice()",
-        "B - split()",
-        "C - replace()",
-        "D - search()",
+    options: ["slice()",
+        "split()",
+        "replace()",
+        "search()",
     ]
 },
 {
